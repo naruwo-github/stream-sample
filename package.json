@@ -1,0 +1,16 @@
+{
+	"name": "stream-sample",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"server": "node server.js",
+		"client": "node client.mjs"
+	},
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.19.2",
+		"node-fetch": "^3.3.2"
+	}
+}
