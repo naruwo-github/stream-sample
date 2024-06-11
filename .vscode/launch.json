@@ -11,6 +11,13 @@
 		{
 			"type": "node",
 			"request": "launch",
+			"name": "Debug Original Server",
+			"skipFiles": ["<node_internals>/**"],
+			"program": "${workspaceFolder}/original-server.js"
+		},
+		{
+			"type": "node",
+			"request": "launch",
 			"name": "Debug Client",
 			"skipFiles": ["<node_internals>/**"],
 			"program": "${workspaceFolder}/client.mjs"

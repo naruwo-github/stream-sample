@@ -1,10 +1,9 @@
 import { get } from 'node:http';
 import { TextDecoder } from 'node:util';
 
-// データを取得するURL
-const url = 'http://localhost:5001/stream';
+// const url = 'http://localhost:5001/stream';
+const url = 'http://localhost:3333/stream-original';
 
-// 非同期関数を定義
 async function fetchAndProcessStream() {
 	try {
 		get(url, (response) => {

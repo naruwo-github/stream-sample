@@ -1,32 +1,33 @@
 const express = require('express');
-const { Readable } = require('node:stream');
+const { get } = require('node:http');
 
 const app = express();
 const port = 5001;
 
-// サンプルデータ
-const sampleData = [
-	{ id: 1, title: 'Post 1', body: 'This is the first post' },
-	{ id: 2, title: 'Post 2', body: 'This is the second post' },
-	{ id: 3, title: 'Post 3', body: 'This is the third post' }
-];
+const externalApiUrl = 'http://localhost:3333/stream-original'
 
-// ストリームを使ってデータを送信するエンドポイント
 app.get('/stream', (req, res) => {
-	const readable = new Readable({
-		read() {
-			this.push(JSON.stringify(sampleData[0]));
-			this.push(JSON.stringify(sampleData[1]));
-			this.push(JSON.stringify(sampleData[2]));
-			this.push(null); // データの終わりを示す
-		}
+	get(externalApiUrl, (externalRes) => {
+		externalRes.on('data', (chunk) => {
+			res.write(chunk);
+		});
+
+		externalRes.on('end', () => {
+			res.end();
+		});
+
+		externalRes.on('error', (error) => {
+			console.error('Error in external API response:', error);
+			res.status(500).send('Error in external API response');
+		});
+	}).on('error', (error) => {
+		console.error('Error in fetching external API:', error);
+		res.status(500).send('Error in fetching external API');
 	});
 
 	res.setHeader('Content-Type', 'application/json');
-	readable.pipe(res);
 });
 
-// サーバーを起動
 app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
 });
