@@ -1,31 +1,31 @@
-const express = require('express');
-const { get } = require('node:http');
+const express = require("express");
+const { get } = require("node:http");
 
 const app = express();
 const port = 5001;
 
-const externalApiUrl = 'http://localhost:3333/stream-original'
+const externalApiUrl = "http://localhost:3333/stream-original";
 
-app.get('/stream', (req, res) => {
+app.get("/stream", (req, res) => {
 	get(externalApiUrl, (externalRes) => {
-		externalRes.on('data', (chunk) => {
+		externalRes.on("data", (chunk) => {
 			res.write(chunk);
 		});
 
-		externalRes.on('end', () => {
+		externalRes.on("end", () => {
 			res.end();
 		});
 
-		externalRes.on('error', (error) => {
-			console.error('Error in external API response:', error);
-			res.status(500).send('Error in external API response');
+		externalRes.on("error", (error) => {
+			console.error("Error in external API response:", error);
+			res.status(500).send("Error in external API response");
 		});
-	}).on('error', (error) => {
-		console.error('Error in fetching external API:', error);
-		res.status(500).send('Error in fetching external API');
+	}).on("error", (error) => {
+		console.error("Error in fetching external API:", error);
+		res.status(500).send("Error in fetching external API");
 	});
 
-	res.setHeader('Content-Type', 'application/json');
+	res.setHeader("Content-Type", "application/json");
 });
 
 app.listen(port, () => {
