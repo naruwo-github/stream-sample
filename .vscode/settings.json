@@ -1,21 +1,20 @@
 {
-    /** 基本全員入れましょう */
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "biomejs.biome",
-    "editor.codeActionsOnSave": {
-      "source.fixAll.eslint": "explicit"
-    },
-    /** 入れるのを推奨。User/settings.jsonに同じ設定がある場合は不要 */
-    // Fn + 2で変数名を置換するときにexport先の変数も一緒に変わるようにする
-    "typescript.preferences.useAliasesForRenames": false,
-    "javascript.preferences.useAliasesForRenames": false,
-    // tsvファイルを作るときにtabがspaceに変換されて困る場合はfalseにする
-    "editor.insertSpaces": false,
-    // 自動インポート時に相対パスにならないようにする
-    "typescript.preferences.importModuleSpecifier": "non-relative",
-    /** 見た目だけに影響。User/settings.jsonに同じ設定がある場合は不要 */
-    // ブラケットが見やすくなります
-    "editor.guides.bracketPairs": true,
-  }
-  
+	/** 基本全員入れましょう */
+	"typescript.tsdk": "node_modules/typescript/lib",
+	"editor.formatOnSave": true,
+	"editor.defaultFormatter": "biomejs.biome",
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": "explicit"
+	},
+	/** 入れるのを推奨。User/settings.jsonに同じ設定がある場合は不要 */
+	// Fn + 2で変数名を置換するときにexport先の変数も一緒に変わるようにする
+	"typescript.preferences.useAliasesForRenames": false,
+	"javascript.preferences.useAliasesForRenames": false,
+	// tsvファイルを作るときにtabがspaceに変換されて困る場合はfalseにする
+	"editor.insertSpaces": false,
+	// 自動インポート時に相対パスにならないようにする
+	"typescript.preferences.importModuleSpecifier": "non-relative",
+	/** 見た目だけに影響。User/settings.jsonに同じ設定がある場合は不要 */
+	// ブラケットが見やすくなります
+	"editor.guides.bracketPairs": true
+}
