@@ -4,7 +4,7 @@ const { get } = require("node:http");
 const app = express();
 const port = 5001;
 
-const externalApiUrl = "http://localhost:3333/stream-original";
+const externalApiUrl = "http://localhost:3333/stream/openai-sample";
 
 app.get("/stream", (req, res) => {
 	get(externalApiUrl, (externalRes) => {

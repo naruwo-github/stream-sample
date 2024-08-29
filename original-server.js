@@ -4,14 +4,14 @@ const { Readable } = require("node:stream");
 const app = express();
 const port = 3333;
 
-// サンプルデータ
 const sampleData = [
 	{ id: 1, title: "Post 1", body: "This is the first post" },
 	{ id: 2, title: "Post 2", body: "This is the second post" },
 	{ id: 3, title: "Post 3", body: "This is the third post" },
+	{ id: 4, title: "Post 4", body: "This is the fourth post" },
+	{ id: 5, title: "Post 5", body: "This is the fifth post" },
 ];
 
-// ストリームを使ってデータを送信するエンドポイント
 app.get("/stream-original", (req, res) => {
 	const readable = new Readable({
 		read() {
@@ -26,7 +26,6 @@ app.get("/stream-original", (req, res) => {
 	readable.pipe(res);
 });
 
-// サーバーを起動
 app.listen(port, () => {
 	console.log(`Server is running on http://localhost:${port}`);
 });

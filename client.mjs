@@ -1,7 +1,8 @@
 import { get } from "node:http";
 import { TextDecoder } from "node:util";
 
-const url = "http://localhost:5001/stream";
+const url = "http://localhost:15000/admin/copilot/answer?tenantId=test";
+// const url = "http://localhost:5001/stream";
 // const url = 'http://localhost:3333/stream-original';
 
 async function fetchAndProcessStream() {
